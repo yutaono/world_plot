@@ -5,16 +5,19 @@ module.exports = (grunt)->
             app:
                 files:
                     "app.js": "app.coffee"
+                    "socket.js": "socket.coffee"
                     "routes/index.js": "routes/src/index.coffee"
                     "routes/user.js": "routes/src/user.coffee"
+                    "public/javascripts/main.js": "public/javascripts/src/main.coffee"
                 options:
                     bare: true
                     sourceMap: true
         watch:
             files:
                 [
-                    "src/*.coffee"
+                    "*.coffee"
                     "routes/src/*.coffee"
+                    "public/javascripts/*.coffee"
                 ]
             tasks:
                 [

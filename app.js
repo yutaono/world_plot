@@ -2,7 +2,7 @@
 Module dependencies.
 */
 
-var app, express, http, path, routes, user;
+var app, express, http, path, routes, server, socket, user;
 
 express = require("express");
 
@@ -13,6 +13,8 @@ user = require("./routes/user");
 http = require("http");
 
 path = require("path");
+
+socket = require("./socket");
 
 app = express();
 
@@ -46,7 +48,11 @@ app.get("/", routes.index);
 
 app.get("/users", user.list);
 
-http.createServer(app).listen(app.get("port"), function() {
+server = http.createServer(app);
+
+socket["do"](server);
+
+server.listen(app.get("port"), function() {
   return console.log("Express server listening on port " + app.get("port"));
 });
 
