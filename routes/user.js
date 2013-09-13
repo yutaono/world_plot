@@ -1,5 +1,14 @@
+var db;
+
+db = require("../db");
+
 exports.list = function(req, res) {
-  return res.send("respond with a resource");
+  return db.User.find(function(err, docs) {
+    if (err) {
+      console.log(err);
+    }
+    return res.send(docs);
+  });
 };
 
 /*

@@ -1,6 +1,11 @@
 
 #
 # * GET users listing.
-# 
+#
+
+db = require("../db")
+
 exports.list = (req, res) ->
-  res.send "respond with a resource"
+  db.User.find (err, docs) ->
+    console.log err if err
+    res.send docs

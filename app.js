@@ -2,13 +2,15 @@
 Module dependencies.
 */
 
-var app, express, http, path, routes, server, socket, user;
+var admin, app, express, http, path, routes, server, socket, user;
 
 express = require("express");
 
 routes = require("./routes");
 
 user = require("./routes/user");
+
+admin = require("./routes/admin");
 
 http = require("http");
 
@@ -47,6 +49,8 @@ if ("development" === app.get("env")) {
 app.get("/", routes.index);
 
 app.get("/users", user.list);
+
+app.get("/admin", admin.index);
 
 server = http.createServer(app);
 

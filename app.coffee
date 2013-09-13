@@ -5,6 +5,7 @@ Module dependencies.
 express = require("express")
 routes = require("./routes")
 user = require("./routes/user")
+admin = require("./routes/admin")
 http = require("http")
 path = require("path")
 socket = require("./socket")
@@ -27,6 +28,7 @@ app.use express.errorHandler()  if "development" is app.get("env")
 
 app.get "/", routes.index
 app.get "/users", user.list
+app.get "/admin", admin.index
 
 server = http.createServer(app)
 

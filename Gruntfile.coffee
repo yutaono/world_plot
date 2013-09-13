@@ -9,6 +9,7 @@ module.exports = (grunt)->
                     "socket.js": "socket.coffee"
                     "routes/index.js": "routes/src/index.coffee"
                     "routes/user.js": "routes/src/user.coffee"
+                    "routes/admin.js": "routes/src/admin.coffee"
                     "public/javascripts/main.js": "public/javascripts/src/main.coffee"
                 options:
                     bare: true
