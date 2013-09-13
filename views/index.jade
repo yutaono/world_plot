@@ -1,9 +1,14 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+    h1= title
+    p Welcome to #{title}
 
-  div
-    span online : &#xA0;
-    span.online_number
+    div
+        span online : &#xA0;
+        span.online_number
+
+        div
+            span user id:
+            input.user_id(type='text', name='user_id')
+            input#send( type='button' value='send')

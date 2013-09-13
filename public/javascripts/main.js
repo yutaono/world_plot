@@ -2,10 +2,15 @@ $(function() {
   var socket;
   socket = io.connect(window.location.hostname);
   socket.on('connect');
-  return socket.on('online_number', function(data) {
-    var res;
-    res = data.online_number;
-    return $('.online_number').html(res);
+  socket.on('online_number', function(req) {
+    return $('.online_number').html(req.online_number);
+  });
+  return $("#send").click(function() {
+    var user_id;
+    user_id = $(".user_id").val();
+    return socket.emit('add user', {
+      user_id: user_id
+    });
   });
 });
 

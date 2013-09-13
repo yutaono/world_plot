@@ -18,7 +18,7 @@ module.exports = (grunt)->
                 [
                     "*.coffee"
                     "routes/src/*.coffee"
-                    "public/javascripts/*.coffee"
+                    "public/javascripts/src/*.coffee"
                 ]
             tasks:
                 [

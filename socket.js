@@ -1,4 +1,6 @@
-var online_number;
+var db, online_number;
+
+db = require("./db");
 
 online_number = 0;
 
@@ -14,6 +16,17 @@ exports["do"] = function(server) {
     });
     socket.broadcast.emit('online_number', {
       online_number: online_number
+    });
+    socket.on('add user', function(req) {
+      var user;
+      user = db.User();
+      user.user_id = req.user_id;
+      user.created = new Date();
+      return user.save(function(err) {
+        if (err) {
+          return console.log(err);
+        }
+      });
     });
     return socket.on('disconnect', function() {
       --online_number;

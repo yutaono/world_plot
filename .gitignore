@@ -1,4 +1,3 @@
-*.map
 *~
 *.sublime*
 node_modules
