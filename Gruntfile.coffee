@@ -5,6 +5,7 @@ module.exports = (grunt)->
             app:
                 files:
                     "app.js": "app.coffee"
+                    "db.js": "db.coffee"
                     "socket.js": "socket.coffee"
                     "routes/index.js": "routes/src/index.coffee"
                     "routes/user.js": "routes/src/user.coffee"
